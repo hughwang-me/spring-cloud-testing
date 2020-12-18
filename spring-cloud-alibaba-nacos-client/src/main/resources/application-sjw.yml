@@ -1,0 +1,13 @@
+server:
+  port: 8850
+spring:
+  application:
+    name: nacos-client
+  cloud:
+    nacos:
+      server-addr: nacos.uwjx.com:8848
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'

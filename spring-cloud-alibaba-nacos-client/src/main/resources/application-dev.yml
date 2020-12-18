@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: nacos-client
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'

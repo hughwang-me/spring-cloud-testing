@@ -1,13 +1,5 @@
 server:
-  port: 9081
+  port: 8850
 spring:
-  application:
-    name: nacos-client-01
-  cloud:
-    nacos:
-      server-addr: localhost:8848
-management:
-  endpoints:
-    jmx:
-      exposure:
-        include: '*'
+  profiles:
+    active: dev

@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class ClientController {
 
-    private final static String DISCOVERY_SERVICE_ID = "nacos-server-01";
+    private final static String DISCOVERY_SERVICE_ID = "nacos-discovery";
 
     @Autowired
     LoadBalancerClient loadBalancerClient;
@@ -34,11 +34,12 @@ public class ClientController {
     public String get() {
         ServiceInstance serviceInstance = loadBalancerClient.choose(DISCOVERY_SERVICE_ID);
         log.warn("serviceInstance info : {}", JSON.toJSONString(serviceInstance));
-        String url = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/test/test1";
-        log.warn("url -> {}", url);
+        String url1 = "http://" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + "/test/test1";
+        log.warn("url1 -> {}", url1);
 
         String url2 = "http://" + DISCOVERY_SERVICE_ID + "/test/test1";
-        String result = restTemplate.getForObject(url2, String.class);
+        log.warn("url2 -> {}", url2);
+        String result = restTemplate.getForObject(url1, String.class);
         log.warn("result : {}", result);
         return result;
     }
