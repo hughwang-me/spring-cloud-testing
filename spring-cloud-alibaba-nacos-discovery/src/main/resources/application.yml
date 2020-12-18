@@ -1,0 +1,13 @@
+server:
+  port: 9080
+spring:
+  application:
+    name: nacos-server-01
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: '*'
